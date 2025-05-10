@@ -68,12 +68,12 @@ Server will start on: http://localhost:8080
 
 ### 1. POST `/req_pq`
 
-**Request:**
+Request:
 ```json
 {
   "nonce": "random_nonce_base64"
 }
-**Response:**
+Response:
 {
   "nonce": "...",
   "server_nonce": "...",
@@ -82,14 +82,14 @@ Server will start on: http://localhost:8080
 }
 
 ### 2. POST '/set_client_dh_params'
-**Request:**
+Request:
 {
   "nonce": "...",
   "server_nonce": "...",
   "g_b": "hex_dh_value",
   "client_id": "user123"
 }
-**Response:**
+Response:
 {
   "auth_key": "base64_auth_key",
   "session_id": "base64_session_id",
@@ -98,7 +98,7 @@ Server will start on: http://localhost:8080
 }
 
 ### 3. POST '/secure_message'
-**Request:**
+Request:
 {
   "client_id": "user123",
   "target_peer": "user456",
@@ -107,7 +107,7 @@ Server will start on: http://localhost:8080
   "encrypted_data": [72, 101, 108, 108, 111],
   "message_key": [10, 20, 30, 40]
 }
-**Response:**
+Response:
 {
   "msg_id": "64bit_message_id",
   "seq_no": 1,
