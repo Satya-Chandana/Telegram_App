@@ -64,41 +64,58 @@ python server.py
 ```
 Server will start on: http://localhost:8080
 
+
 ## API Endpoints
 
 ### 1. POST `/req_pq`
 
-Request:
+**Request:**
 ```json
 {
   "nonce": "random_nonce_base64"
 }
-Response:
+```
+
+**Response:**
+```json
 {
   "nonce": "...",
   "server_nonce": "...",
   "pq": "hex_pq",
   "fingerprint": "hex_fingerprint"
 }
+```
 
-### 2. POST '/set_client_dh_params'
-Request:
+---
+
+### 2. POST `/set_client_dh_params`
+
+**Request:**
+```json
 {
   "nonce": "...",
   "server_nonce": "...",
   "g_b": "hex_dh_value",
   "client_id": "user123"
 }
-Response:
+```
+
+**Response:**
+```json
 {
   "auth_key": "base64_auth_key",
   "session_id": "base64_session_id",
   "salt": "base64_salt",
   "status": "Auth key established"
 }
+```
 
-### 3. POST '/secure_message'
-Request:
+---
+
+### 3. POST `/secure_message`
+
+**Request:**
+```json
 {
   "client_id": "user123",
   "target_peer": "user456",
@@ -107,7 +124,10 @@ Request:
   "encrypted_data": [72, 101, 108, 108, 111],
   "message_key": [10, 20, 30, 40]
 }
-Response:
+```
+
+**Response:**
+```json
 {
   "msg_id": "64bit_message_id",
   "seq_no": 1,
@@ -115,5 +135,6 @@ Response:
   "timestamp": "ISO_8601_timestamp",
   "last_msg_id": "64bit_message_id"
 }
+```
 
 
